@@ -89,6 +89,9 @@
 
 .jspInput{
     flex:1;
-    background-color: red;
     margin-right: 3px;
+}
+
+.jspInput input{
+    width: 100%;
 }

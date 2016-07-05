@@ -56,6 +56,19 @@ var jspopup = {
 				}
 			});
     },
+    addTextSetting: function (guid, name, label, current, callback) {
+        var settingGuid = this.guid();
+        var jsSetting = '';
+        jsSetting += '<div class="jspSetting" id="jspSetting'+settingGuid+'">';
+        jsSetting += '<div class="jspLabel">'+label+'</div>';
+        jsSetting += '<div class="jspInput">';
+        jsSetting += '<input type="text" name="' + name + '" value="'+current+'">';
+		jsSetting += '</div>';
+        $('#jsp' + guid + ' .jspSettings').append(jsSetting);
+        $('#jspSetting'+settingGuid+' .jspInput input').on('input',function(e){
+            callback($(this).val());
+        });
+    },
     guid: function () {
         function s4() {
             return Math.floor((1 + Math.random()) * 0x10000)

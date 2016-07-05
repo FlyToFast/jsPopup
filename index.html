@@ -22,6 +22,7 @@
         var jspopupClickDiv = document.getElementById('openJsPopupBtn');
         jspopupClickDiv.addEventListener("click", function(){
             var guid = jspopup.initPopup('Settings popup');
+            jspopup.addTextSetting(guid, 'btnText', 'button text', 'open jsPopup', setButtonText);
             jspopup.addSliderSetting(guid, 'size', 100, 0, 1000, 5, setSize);
             jspopup.addSliderSetting(guid, 'r', 234, 0, 255, 1, setR);
             jspopup.addSliderSetting(guid, 'g', 132, 0, 255, 1, setG);
@@ -45,12 +46,14 @@
             var colors = getRGB();
             $('.MyCircle').css('background-color','rgb('+colors[0]+','+colors[1]+','+value+')');
         }
-
         function getRGB(){
             var colors = $('.MyCircle').css('background-color');
             colors = colors.split('(')[1];
             colors = colors.split(')')[0];
             return colors.split(',');
+        }
+        function setButtonText(value){
+            $('.MyButton').text(value);
         }
     </script>
 </html>
