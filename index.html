@@ -8,15 +8,52 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+         <div class="flexboxClass">
+            <div class="MyCircle"></div>
+        </div>
         <div class="flexboxClass">
             <div class="MyButton" id="openJsPopupBtn">open jsPopup</div>
         </div>
+       
+       
         
     </body>
     <script>
         var jspopupClickDiv = document.getElementById('openJsPopupBtn');
         jspopupClickDiv.addEventListener("click", function(){
-            jspopup.initPopup('Settings popup');
+            var guid = jspopup.initPopup('Settings popup');
+            jspopup.addTextSetting(guid, 'btnText', 'button text', 'open jsPopup', setButtonText);
+            jspopup.addSliderSetting(guid, 'size', 100, 0, 1000, 5, setSize);
+            jspopup.addSliderSetting(guid, 'r', 234, 0, 255, 1, setR);
+            jspopup.addSliderSetting(guid, 'g', 132, 0, 255, 1, setG);
+            jspopup.addSliderSetting(guid, 'b', 52, 0, 255, 1, setB);
         });
+
+
+        function setSize(value){
+            $('.MyCircle').css({"width": value+'px', "height": value+'px'});
+        }
+
+        function setR(value){
+            var colors = getRGB();
+            $('.MyCircle').css('background-color','rgb('+value+','+colors[1]+','+colors[2]+')');
+        }
+        function setG(value){
+            var colors = getRGB();
+            $('.MyCircle').css('background-color','rgb('+colors[0]+','+value+','+colors[2]+')');
+        }
+        function setB(value){
+            var colors = getRGB();
+            $('.MyCircle').css('background-color','rgb('+colors[0]+','+colors[1]+','+value+')');
+        }
+        function getRGB(){
+            var colors = $('.MyCircle').css('background-color');
+            colors = colors.split('(')[1];
+            colors = colors.split(')')[0];
+            return colors.split(',');
+        }
+        function setButtonText(value){
+            $('.MyButton').text(value);
+        }
     </script>
 </html>
