@@ -1,0 +1,60 @@
+.jspfullscreen{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.jspflexboxCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jsp{
+    border-radius: 3px;
+    background-color: #f4f4f4;
+    box-shadow: 0px 3px 5px #555;
+    text-align: center;
+    position: relative;
+    min-width: 400px;
+    min-height: 50px;
+    z-index: 1202;
+    overflow: hidden;
+}
+
+.jspTopBar{
+    background-color: #2F4050;
+    color: white;
+    height: 30px;
+    width: 100%;
+    border-bottom: 1px solid #2e92be;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+.jspPopupTitle{
+    flex: 1;
+    text-align: left;
+    margin: 0 10px;
+}
+
+.jspClose{
+    height: 20px;
+    flex-basis: 20px;
+    margin-right: 10px;
+    background-image: url('cross_white.svg');
+}
+
+.jspFullscreenDark{
+    z-index: 1201;
+    position: fixed;
+     top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.2);
+}

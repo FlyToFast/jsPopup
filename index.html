@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="jspopup.js"></script>
+        <link rel="stylesheet" href="jspopup.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="flexboxClass">
+            <div class="MyButton" id="openJsPopupBtn">open jsPopup</div>
+        </div>
+        
+    </body>
+    <script>
+        var jspopupClickDiv = document.getElementById('openJsPopupBtn');
+        jspopupClickDiv.addEventListener("click", function(){
+            jspopup.initPopup('Settings popup');
+        });
+    </script>
+</html>
