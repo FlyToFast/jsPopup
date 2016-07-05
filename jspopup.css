@@ -4,6 +4,10 @@
     right: 0;
     bottom: 0;
     left: 0;
+    font-family: arial;
+    color: #FBFFF2;
+    box-sizing: border-box;
+
 }
 
 .jspflexboxCenter{
@@ -49,6 +53,15 @@
     background-image: url('cross_white.svg');
 }
 
+.jspSettings{
+    width: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    color:black;
+}
+
 .jspFullscreenDark{
     z-index: 1201;
     position: fixed;
@@ -57,4 +70,25 @@
     bottom: 0;
     left: 0;
     background-color: rgba(0,0,0,0.2);
+}
+
+.jspSetting{
+    height: 30px;
+    background-color: #fff;
+    position: relative;
+    margin: 2px 4px;
+    display: flex;
+    align-items: center;
+}
+
+.jspLabel{
+    flex-basis: 150px;
+    text-align: left;
+    padding: 0 3px;
+}
+
+.jspInput{
+    flex:1;
+    background-color: red;
+    margin-right: 3px;
 }
