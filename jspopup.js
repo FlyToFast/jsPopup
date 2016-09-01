@@ -23,6 +23,7 @@ var jspopup = {
         return guid;
     },
     closePopupListenet: function (guid) {
+        console.log('remove');
         $('#popUpClose' + guid + ', #black' + guid).on('click', function () {
             $('#jspf' + guid).remove();
             $('#black' + guid).remove();
@@ -67,6 +68,21 @@ var jspopup = {
         $('#jsp' + guid + ' .jspSettings').append(jsSetting);
         $('#jspSetting'+settingGuid+' .jspInput input').on('input',function(e){
             callback($(this).val());
+        });
+    },
+    addButtonSetting: function (guid, name, remove, callback) {
+        var settingGuid = this.guid();
+        var jsSetting = '';
+        jsSetting += '<div class="jspSetting" id="jspSetting'+settingGuid+'">';
+        jsSetting += '<div class="jspButton"><span>' + name + '</span></div>';
+		jsSetting += '</div>';
+        $('#jsp' + guid + ' .jspSettings').append(jsSetting);
+        $('#jspSetting' + settingGuid + ' .jspButton').on('click', function (e) {
+            if (remove) {
+                $('#jspf' + guid).remove();
+                $('#black' + guid).remove();
+            }
+            callback();
         });
     },
     guid: function () {

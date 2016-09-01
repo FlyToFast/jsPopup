@@ -27,6 +27,8 @@
             jspopup.addSliderSetting(guid, 'r', 234, 0, 255, 1, setR);
             jspopup.addSliderSetting(guid, 'g', 132, 0, 255, 1, setG);
             jspopup.addSliderSetting(guid, 'b', 52, 0, 255, 1, setB);
+            jspopup.addButtonSetting(guid, 'Set size to 200 and remove', true, setSizeTo200);
+            jspopup.addButtonSetting(guid, 'Set size to 200 and keep', false, setSizeTo200);
         });
 
 
@@ -54,6 +56,10 @@
         }
         function setButtonText(value){
             $('.MyButton').text(value);
+        }
+
+        function setSizeTo200(value){
+            $('.MyCircle').css({"width": '200px', "height": '200px'});
         }
     </script>
 </html>
