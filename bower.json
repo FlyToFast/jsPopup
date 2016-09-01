@@ -1,0 +1,17 @@
+{
+  "name": "jsPopup",
+  "main": "jsPopup.js",
+  "homepage": "bramr.be",
+  "authors": [
+    "Bram Regelbrugge <bramregelbrugge@gmail.com>"
+  ],
+  "description": "javascript popupsettings library",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
