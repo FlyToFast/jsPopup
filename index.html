@@ -3,6 +3,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="jscolor.min.js"></script>
         <script src="jspopup.js"></script>
         <link rel="stylesheet" href="jspopup.css">
         <link rel="stylesheet" href="style.css">
@@ -27,6 +28,7 @@
             jspopup.addSliderSetting(guid, 'r', 234, 0, 255, 1, setR);
             jspopup.addSliderSetting(guid, 'g', 132, 0, 255, 1, setG);
             jspopup.addSliderSetting(guid, 'b', 52, 0, 255, 1, setB);
+            jspopup.addColorPicker(guid, 'select your color:', '2e92be', setcolor);
             jspopup.addButtonSetting(guid, 'Set size to 200 and remove', true, setSizeTo200);
             jspopup.addButtonSetting(guid, 'Set size to 200 and keep', false, setSizeTo200);
         });
@@ -53,6 +55,9 @@
             colors = colors.split('(')[1];
             colors = colors.split(')')[0];
             return colors.split(',');
+        }
+         function setcolor(color){
+            $('.MyCircle').css('background-color','#'+color);
         }
         function setButtonText(value){
             $('.MyButton').text(value);

@@ -7,7 +7,7 @@
     font-family: arial;
     color: #FBFFF2;
     box-sizing: border-box;
-    z-index: 9999;
+    z-index: 999;
 
 }
 
@@ -25,7 +25,7 @@
     position: relative;
     min-width: 400px;
     min-height: 50px;
-    z-index: 1202;
+    z-index: 202;
     overflow: hidden;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .jspFullscreenDark{
-    z-index: 1201;
+    z-index: 201;
     position: fixed;
      top: 0;
     right: 0;

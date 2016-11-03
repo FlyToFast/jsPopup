@@ -85,6 +85,33 @@ var jspopup = {
             callback();
         });
     },
+    addColorPicker: function (guid, label, color, callback) {
+        var settingGuid = this.guid();
+        var jsSetting = '';
+        jsSetting += '<div class="jspSetting" id="jspSetting'+settingGuid+'">';
+        jsSetting += '<div class="jspLabel">'+label+'</div>';
+        jsSetting += '<div class="jspInput">';
+        // jsSetting += '<input type="text" name="' + color + '" value="'+color+'">';
+		jsSetting += '</div>';
+        $('#jsp' + guid + ' .jspSettings').append(jsSetting);
+        var input = document.createElement('INPUT');
+        var picker = new jscolor(input);
+        picker.fromString(color);
+        // picker.onFineChange = callback(this);
+        // picker.fromHSV(360 / 100 * i, 100, 100)
+        $('#jspSetting' + settingGuid + ' .jspInput').append(input);
+        // document.getElementById('container').appendChild(input)
+        $('#jspSetting'+settingGuid+' .jspInput input').on('change input',function(e){
+            callback($(this).val());
+        });
+
+
+        // var input = document.createElement('INPUT')
+        // var picker = new jscolor(input)
+        // picker.fromHSV(360 / 100 * i, 100, 100)
+    
+        // document.getElementById('container').appendChild(input)
+    },
     guid: function () {
         function s4() {
             return Math.floor((1 + Math.random()) * 0x10000)
