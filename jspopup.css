@@ -112,3 +112,7 @@
 .jspButton:hover{
     background-color: #1F4050;
 }
+
+.jspInput select{
+    width: 100%;
+}

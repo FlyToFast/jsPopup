@@ -5,12 +5,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="jscolor.min.js"></script>
         <script src="jspopup.js"></script>
+        <script src="jquery.easing.1.3.js"></script>
         <link rel="stylesheet" href="jspopup.css">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
          <div class="flexboxClass">
-            <div class="MyCircle"></div>
+            <div class="MyCircle" data="circle"></div>
         </div>
         <div class="flexboxClass">
             <div class="MyButton" id="openJsPopupBtn">open jsPopup</div>
@@ -25,37 +26,21 @@
             var guid = jspopup.initPopup('Settings popup');
             jspopup.addTextSetting(guid, 'btnText', 'button text', 'open jsPopup', setButtonText);
             jspopup.addSliderSetting(guid, 'size', 100, 0, 1000, 5, setSize);
-            jspopup.addSliderSetting(guid, 'r', 234, 0, 255, 1, setR);
-            jspopup.addSliderSetting(guid, 'g', 132, 0, 255, 1, setG);
-            jspopup.addSliderSetting(guid, 'b', 52, 0, 255, 1, setB);
-            jspopup.addColorPicker(guid, 'select your color:', '2e92be', setcolor);
+            jspopup.addColorPicker(guid, 'select your color:', $('.MyCircle').css('background-color') , setcolor);
+            jspopup.addSelectbox(guid, 'Select shape', ['circle','square'], $('.MyCircle').attr('data'), setShape);
             jspopup.addButtonSetting(guid, 'Set size to 200 and remove', true, setSizeTo200);
             jspopup.addButtonSetting(guid, 'Set size to 200 and keep', false, setSizeTo200);
         });
 
 
         function setSize(value){
-            $('.MyCircle').css({"width": value+'px', "height": value+'px'});
+            var r=0;
+            if($('.MyCircle').attr('data')=='circle'){
+                r =  value/2+'px';           
+            }
+            $('.MyCircle').css({"width": value+'px', "height": value+'px',"border-radius": r});
         }
 
-        function setR(value){
-            var colors = getRGB();
-            $('.MyCircle').css('background-color','rgb('+value+','+colors[1]+','+colors[2]+')');
-        }
-        function setG(value){
-            var colors = getRGB();
-            $('.MyCircle').css('background-color','rgb('+colors[0]+','+value+','+colors[2]+')');
-        }
-        function setB(value){
-            var colors = getRGB();
-            $('.MyCircle').css('background-color','rgb('+colors[0]+','+colors[1]+','+value+')');
-        }
-        function getRGB(){
-            var colors = $('.MyCircle').css('background-color');
-            colors = colors.split('(')[1];
-            colors = colors.split(')')[0];
-            return colors.split(',');
-        }
          function setcolor(color){
             $('.MyCircle').css('background-color','#'+color);
         }
@@ -64,7 +49,23 @@
         }
 
         function setSizeTo200(value){
-            $('.MyCircle').css({"width": '200px', "height": '200px'});
+            var r=0;
+            if($('.MyCircle').attr('data')=='circle'){
+                r =  '100px';           
+            }
+            $('.MyCircle').animate({
+                    "width": '200px', "height": '200px',"border-radius": r
+                }, 'slow','easeOutElastic');
+        }
+        function setShape(shape){
+            var r=0;
+            if(shape=='circle'){
+                r =  $('.MyCircle').css('width').replace('px','')/2+'px';           
+            }
+            $('.MyCircle').animate({
+                    'border-radius': r
+                }, 'slow','easeOutBounce');
+            $('.MyCircle').attr('data',shape);
         }
     </script>
 </html>

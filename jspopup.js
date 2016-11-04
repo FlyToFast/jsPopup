@@ -23,7 +23,6 @@ var jspopup = {
         return guid;
     },
     closePopupListenet: function (guid) {
-        console.log('remove');
         $('#popUpClose' + guid + ', #black' + guid).on('click', function () {
             $('#jspf' + guid).remove();
             $('#black' + guid).remove();
@@ -91,26 +90,35 @@ var jspopup = {
         jsSetting += '<div class="jspSetting" id="jspSetting'+settingGuid+'">';
         jsSetting += '<div class="jspLabel">'+label+'</div>';
         jsSetting += '<div class="jspInput">';
-        // jsSetting += '<input type="text" name="' + color + '" value="'+color+'">';
 		jsSetting += '</div>';
         $('#jsp' + guid + ' .jspSettings').append(jsSetting);
         var input = document.createElement('INPUT');
         var picker = new jscolor(input);
         picker.fromString(color);
-        // picker.onFineChange = callback(this);
-        // picker.fromHSV(360 / 100 * i, 100, 100)
         $('#jspSetting' + settingGuid + ' .jspInput').append(input);
-        // document.getElementById('container').appendChild(input)
         $('#jspSetting'+settingGuid+' .jspInput input').on('change input',function(e){
             callback($(this).val());
         });
-
-
-        // var input = document.createElement('INPUT')
-        // var picker = new jscolor(input)
-        // picker.fromHSV(360 / 100 * i, 100, 100)
-    
-        // document.getElementById('container').appendChild(input)
+    },
+    addSelectbox: function (guid, label, selectionArray, selected, callback) {
+        var settingGuid = this.guid();
+        var jsSetting = '';
+        jsSetting += '<div class="jspSetting" id="jspSetting'+settingGuid+'">';
+        jsSetting += '<div class="jspLabel">'+label+'</div>';
+        jsSetting += '<div class="jspInput">';
+        jsSetting += '<select>';
+        for (i = 0; i < selectionArray.length; i++) { 
+            jsSetting += '<option';
+            if(selectionArray[i]==selected)
+                jsSetting += ' selected="selected"';
+            jsSetting += ' value="' + selectionArray[i] + '">' + selectionArray[i] + '</option>';
+        }
+        jsSetting += '</select>';
+		jsSetting += '</div>';
+        $('#jsp' + guid + ' .jspSettings').append(jsSetting);
+        $('#jspSetting'+settingGuid+' .jspInput select').on('input',function(e){
+            callback($(this).val());
+        });
     },
     guid: function () {
         function s4() {

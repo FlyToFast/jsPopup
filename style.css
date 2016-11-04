@@ -34,6 +34,6 @@ body{
 .MyCircle{
     width: 100px;
     height: 100px;
-    border-radius: 100000px;
+    border-radius: 50px;
     background-color: rgb(234,132,52);
 }
