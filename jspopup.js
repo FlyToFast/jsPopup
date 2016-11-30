@@ -120,6 +120,30 @@ var jspopup = {
             callback($(this).val());
         });
     },
+    addCheckbox: function (guid, label, selected, callback) {
+        var settingGuid = this.guid();
+        var jsSetting = '';
+        jsSetting += '<div class="jspSetting" id="jspSetting'+settingGuid+'">';
+        jsSetting += '<div class="jspLabel">'+label+'</div>';
+        jsSetting += '<div class="jspInput">';
+        // jsSetting += '<input type="text" name="' + name + '" value="'+current+'">';
+        jsSetting += '<input type="checkbox"';
+        if (selected) { jsSetting += ' checked ';}
+        jsSetting += '>';
+		jsSetting += '</div>';
+        $('#jsp' + guid + ' .jspSettings').append(jsSetting);
+        $('#jspSetting' + settingGuid + ' .jspInput input').change(function () {
+            if ($(this).is(":checked")) {
+                callback(1);
+            } else { 
+                callback(0);
+            }
+        // $('#textbox1').val($(this).is(':checked'));        
+    });
+        // $('#jspSetting'+settingGuid+' .jspInput input').on('input',function(e){
+        //     callback($(this).val());
+        // });
+    },
     guid: function () {
         function s4() {
             return Math.floor((1 + Math.random()) * 0x10000)

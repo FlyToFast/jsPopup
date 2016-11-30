@@ -28,6 +28,7 @@
             jspopup.addSliderSetting(guid, 'size', 100, 0, 1000, 5, setSize);
             jspopup.addColorPicker(guid, 'select your color:', $('.MyCircle').css('background-color') , setcolor);
             jspopup.addSelectbox(guid, 'Select shape', ['circle','square'], $('.MyCircle').attr('data'), setShape);
+            jspopup.addCheckbox(guid, 'blackBG?', blackBG, setBG);
             jspopup.addButtonSetting(guid, 'Set size to 200 and remove', true, setSizeTo200);
             jspopup.addButtonSetting(guid, 'Set size to 200 and keep', false, setSizeTo200);
         });
@@ -66,6 +67,18 @@
                     'border-radius': r
                 }, 'slow','easeOutBounce');
             $('.MyCircle').attr('data',shape);
+        }
+        var blackBG = 0;
+        setBG(blackBG);
+        function setBG(isBlackBG){
+            if(isBlackBG){
+            console.log(2);
+                $('body').css('background-color','black');
+                }
+            else{
+            console.log(1);
+                $('body').css('background-color','#FBFFF2');
+                }
         }
     </script>
 </html>
