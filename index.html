@@ -31,6 +31,12 @@
             jspopup.addCheckbox(guid, 'blackBG?', blackBG, setBG);
             jspopup.addButtonSetting(guid, 'Set size to 200 and remove', true, setSizeTo200);
             jspopup.addButtonSetting(guid, 'Set size to 200 and keep', false, setSizeTo200);
+            jspopup.addMultipleButtonsSetting(guid, [
+                ['<img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" alt="icon">', false, one],
+                ['<img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" alt="icon">', true, two],
+                ['<img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" alt="icon">', false, three],
+                ['<img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" alt="icon">', true, four]
+            ]);
         });
 
 
@@ -79,6 +85,18 @@
             console.log(1);
                 $('body').css('background-color','#FBFFF2');
                 }
+        }
+        function one(){
+            alert('one');
+        }
+         function two(){
+            alert('two');
+        }
+         function three(){
+            alert('three');
+        }
+         function four(){
+            alert('four');
         }
     </script>
 </html>

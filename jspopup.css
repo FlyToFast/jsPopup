@@ -113,6 +113,22 @@
     background-color: #1F4050;
 }
 
+.multipleButtons{
+    margin: 0 0.5%;
+}
+
+.multipleButtons:first-child{
+    margin-left: 0%;
+}
+.multipleButtons:last-child{
+    margin-right: 0%;
+}
+
+.jspButton img{
+    height: 20px;
+}
+
+
 .jspInput select{
     width: 100%;
 }

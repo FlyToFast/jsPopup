@@ -84,6 +84,29 @@ var jspopup = {
             callback();
         });
     },
+addMultipleButtonsSetting: function (guid, buttonsArray) {
+        var settingGuid = this.guid();
+        var jsSetting = '';
+        jsSetting += '<div class="jspSetting">';
+        for (i = 0; i < buttonsArray.length; i++) {
+            console.log(buttonsArray[i][0]);
+            jsSetting += '<div class="jspButton multipleButtons" id="jspSetting'+settingGuid+'-'+i+'"><span>'+buttonsArray[i][0]+'</span></div>';
+        }        
+		jsSetting += '</div>';
+        $('#jsp' + guid + ' .jspSettings').append(jsSetting);
+         for (i = 0; i < buttonsArray.length; i++) { 
+            $('#jspSetting' + settingGuid +'-'+i).on('click', function (e) {
+                var p = $(this).attr('id').split('-').slice(-1)[0];
+                if (buttonsArray[p][1]) {
+                    $('#jspf' + guid).remove();
+                    $('#black' + guid).remove();
+                }
+                buttonsArray[p][2]();
+            });
+        }  
+    },
+
+    
     addColorPicker: function (guid, label, color, callback) {
         var settingGuid = this.guid();
         var jsSetting = '';
