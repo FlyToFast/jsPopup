@@ -96,7 +96,7 @@ var jspopup = {
             callback();
         });
     },
-addMultipleButtonsSetting: function (guid, buttonsArray) {
+    addMultipleButtonsSetting: function (guid, buttonsArray) {
         var settingGuid = this.guid();
         var jsSetting = '';
         jsSetting += '<div class="jspSetting">';
@@ -113,6 +113,27 @@ addMultipleButtonsSetting: function (guid, buttonsArray) {
                     $('#black' + guid).remove();
                 }
                 buttonsArray[p][2]();
+            });
+        }  
+    },
+    addMultipleNumberSetting: function (guid, numbersArray) {
+        var settingGuid = this.guid();
+        var jsSetting = '';
+        jsSetting += '<div class="jspSetting">';
+        for (i = 0; i < numbersArray.length; i++) {
+            jsSetting += '<div class="multipleNumbers">';
+            jsSetting += '<div class="jspLabel">'+numbersArray[i][0]+'</div>';
+            jsSetting += '<div class="jspInput" id="jspSetting'+settingGuid+'-'+i+'">';
+            jsSetting += '<input type="number" name="jspNumber" value="'+numbersArray[i][1]+'" min="'+numbersArray[i][2]+'" max="'+numbersArray[i][3]+'" step="'+numbersArray[i][4]+'">';
+            jsSetting += '</div>';
+            jsSetting += '</div>';
+        }        
+		jsSetting += '</div>';
+        $('#jsp' + guid + ' .jspSettings').append(jsSetting);
+         for (i = 0; i < numbersArray.length; i++) { 
+            $('#jspSetting' + settingGuid +'-'+i + ' input').on('input',function(e){
+                var p = $(this).parent().attr('id').split('-').slice(-1)[0];
+                numbersArray[p][5]($(this).val());
             });
         }  
     },

@@ -146,3 +146,22 @@
 .jspInputRight{
     width: 30%;
 }
+
+.multipleNumbers{
+    width: 100%;
+    margin: 0 0.5%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.multipleNumbers:first-child{
+    margin-left: 0%;
+}
+.multipleNumbers:last-child{
+    margin-right: 0%;
+}
+
+.multipleNumbers .jspLabel{
+    flex-basis: 20px;
+}
