@@ -132,3 +132,17 @@
 .jspInput select{
     width: 100%;
 }
+
+.jspFlex{
+    display: flex;
+    align-items: center;
+}
+
+.jspInputLeft{
+    width: 70%;
+    margin: 2px;
+}
+
+.jspInputRight{
+    width: 30%;
+}

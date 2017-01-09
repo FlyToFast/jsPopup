@@ -42,19 +42,31 @@ var jspopup = {
         var jsSetting = '';
         jsSetting += '<div class="jspSetting" id="jspSetting'+settingGuid+'">';
         jsSetting += '<div class="jspLabel">'+label+'</div>';
-        jsSetting += '<div class="jspInput">';
+        jsSetting += '<div class="jspInput jspFlex">';
+        jsSetting += '<div class="jspInputLeft">';
+        		jsSetting += '</div>';
+
+        jsSetting += '<div class="jspInputRight">';
+        jsSetting += '<input type="number" name="jspNumber" value="'+current+'" min="'+min+'" max="'+max+'" step="'+step+'">';
+		jsSetting += '</div>';
+
 		jsSetting += '</div>';
         $('#jsp' + guid + ' .jspSettings').append(jsSetting);
-        $('#jspSetting'+settingGuid+' .jspInput').slider({
+        $('#jspSetting'+settingGuid+' .jspInputLeft').slider({
 				range: "min",
 				max: max,
 				min: min,
 				value: current,
 				step: step,
                 slide: function (event, ui) {
+                    $('#jspSetting'+settingGuid+' .jspInputRight input').val(ui.value);
 					callback(ui.value);
 				}
 			});
+        $('#jspSetting'+settingGuid+' .jspInputRight input').on('input',function(e){
+            $('#jspSetting'+settingGuid+' .jspInputLeft').slider( "value", $(this).val() );
+            callback($(this).val());
+        });
     },
     addTextSetting: function (guid, name, label, current, callback) {
         var settingGuid = this.guid();
@@ -89,7 +101,6 @@ addMultipleButtonsSetting: function (guid, buttonsArray) {
         var jsSetting = '';
         jsSetting += '<div class="jspSetting">';
         for (i = 0; i < buttonsArray.length; i++) {
-            console.log(buttonsArray[i][0]);
             jsSetting += '<div class="jspButton multipleButtons" id="jspSetting'+settingGuid+'-'+i+'"><span>'+buttonsArray[i][0]+'</span></div>';
         }        
 		jsSetting += '</div>';
