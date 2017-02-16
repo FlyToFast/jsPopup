@@ -91,13 +91,17 @@
 
 .jspLabel{
     flex-basis: 150px;
+    max-width: 150px;
     text-align: left;
     padding: 0 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .jspInput{
     flex:1;
-    margin-right: 10px;
+    margin-right: 3px;
 }
 
 .jspInput input{
