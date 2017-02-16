@@ -22,6 +22,26 @@ var jspopup = {
         );
         return guid;
     },
+    initSideBar: function (title, insertDiv) {
+        var guid = this.guid();
+        var jsPopupDiv = '';
+        // jsPopupDiv += '<div class="jspfullscreen jspflexboxCenter" id="jspf'+guid+'">'
+	    jsPopupDiv += '<div class="jsp" id="jsp'+guid+'">';
+	    // jsPopupDiv += '<div class="jspTopBar">';
+	    // jsPopupDiv += '<div class=" jspPopupTitle">'+title+'</div>';
+        // jsPopupDiv += '<div class="jspClose" id="popUpClose' + guid + '"></div>';
+        // jsPopupDiv += '</div>';
+        jsPopupDiv += '<div class="jspSettings"></div>';
+        jsPopupDiv += '</div>';
+        // jsPopupDiv += '<div class="jspFullscreenDark" id="black' + guid + '"></div>';
+        $(insertDiv).empty();
+        $(insertDiv).append(jsPopupDiv);
+        // this.closePopupListenet(guid);
+        // $('#jsp' + guid).draggable(
+		// 	{ handle: ".jspPopupTitle" }
+        // );
+        return guid;
+    },
     closePopupListenet: function (guid) {
         $('#popUpClose' + guid + ', #black' + guid).on('click', function () {
             $('#jspf' + guid).remove();

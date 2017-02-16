@@ -37,3 +37,12 @@ body{
     border-radius: 50px;
     background-color: rgb(234,132,52);
 }
+.sidebar{
+    background-color: red;
+    position: absolute;
+    width: 400px;
+    right: 0;
+    bottom: 0;
+    height: 50%;
+    overflow: auto;
+}

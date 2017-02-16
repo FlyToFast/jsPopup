@@ -16,6 +16,7 @@
         <div class="flexboxClass">
             <div class="MyButton" id="openJsPopupBtn">open jsPopup</div>
         </div>
+        <div class="sidebar"></div>
        
        
         
@@ -23,7 +24,8 @@
     <script>
         var jspopupClickDiv = document.getElementById('openJsPopupBtn');
         jspopupClickDiv.addEventListener("click", function(){
-            var guid = jspopup.initPopup('Settings popup');
+            // var guid = jspopup.initPopup('Settings popup');
+            var guid = jspopup.initSideBar('Settings sidebar', '.sidebar');
             jspopup.addTextSetting(guid, 'btnText', 'button text', 'open jsPopup', setButtonText);
             jspopup.addSliderSetting(guid, 'size', 100, 0, 1000, 5, setSize);
             jspopup.addColorPicker(guid, 'select your color:', $('.MyCircle').css('background-color') , setcolor);
