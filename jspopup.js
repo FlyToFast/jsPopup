@@ -26,7 +26,7 @@ var jspopup = {
         var guid = this.guid();
         var jsPopupDiv = '';
         // jsPopupDiv += '<div class="jspfullscreen jspflexboxCenter" id="jspf'+guid+'">'
-	    jsPopupDiv += '<div class="jsp" id="jsp'+guid+'">';
+	    jsPopupDiv += '<div class="jsp jspSidebar" id="jsp'+guid+'">';
 	    // jsPopupDiv += '<div class="jspTopBar">';
 	    // jsPopupDiv += '<div class=" jspPopupTitle">'+title+'</div>';
         // jsPopupDiv += '<div class="jspClose" id="popUpClose' + guid + '"></div>';

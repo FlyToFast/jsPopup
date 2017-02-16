@@ -29,6 +29,13 @@
     overflow: hidden;
 }
 
+
+.jspSidebar{
+    box-shadow: none;
+    border-radius: 0px;
+
+}
+
 .jspTopBar{
     background-color: #2F4050;
     color: white;
