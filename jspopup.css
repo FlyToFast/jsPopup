@@ -33,7 +33,7 @@
 .jspSidebar{
     box-shadow: none;
     border-radius: 0px;
-
+    min-height: 100%;
 }
 
 .jspTopBar{
